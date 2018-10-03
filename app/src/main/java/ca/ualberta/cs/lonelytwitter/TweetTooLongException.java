@@ -1,7 +1,8 @@
 package ca.ualberta.cs.lonelytwitter;
 
 /**
- * Created by tyrrell1 on 9/18/18.
+ * TweetTooLongException is thrown when the user enters a tweet that is more than the MAXLENGTH.
+ * @author tyrrell1
  */
 
 public class TweetTooLongException extends Exception {

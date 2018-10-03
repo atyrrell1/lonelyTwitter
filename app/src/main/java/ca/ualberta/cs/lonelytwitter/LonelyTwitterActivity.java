@@ -1,3 +1,9 @@
+
+/**
+* Lonely twitter class runs the main application activity.
+ *
+ * @author tyrrell1
+*/
 package ca.ualberta.cs.lonelytwitter;
 
 import java.io.BufferedReader;
@@ -10,12 +16,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -25,7 +29,9 @@ import android.widget.ListView;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-
+/**
+ * The Lonely Twitter Activity is the main application activity.
+ */
 public class LonelyTwitterActivity extends Activity {
 
 	private static final String FILENAME = "file.sav";
@@ -57,7 +63,7 @@ public class LonelyTwitterActivity extends Activity {
 				adapter.notifyDataSetChanged();
 
 				saveInFile();
-				//finish();
+				finish();
 
 			}
 		});
@@ -75,6 +81,9 @@ public class LonelyTwitterActivity extends Activity {
 
 	}
 
+	/**
+	 * start of the application
+	 */
 	@Override
 	protected void onStart() {
 		// TODO Auto-generated method stub
@@ -83,10 +92,15 @@ public class LonelyTwitterActivity extends Activity {
 		adapter = new ArrayAdapter<Tweet>(this,
 				R.layout.list_item, tweetList);
 
-		//adapter.notifyDataSetChanged();
+		adapter.notifyDataSetChanged();
 		oldTweetsList.setAdapter(adapter);
 	}
 
+	/**
+	 * load from the file
+	 * @throws FileNotFoundException
+	 * @throws IOException
+	 */
 	private void loadFromFile() {
 
 		try {
@@ -107,7 +121,12 @@ public class LonelyTwitterActivity extends Activity {
 			e.printStackTrace();
 		}
 	}
-	
+
+	/*
+	save the list in a file
+	@throws FileNotFoundException
+	@throws IOException
+	 */
 	private void saveInFile() {
 		try {
 
